@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title> Scrapped Srealitky Items </title>
+</head>
+<body>
+    <h1> Scrapped Srealitky Items </h1>
+    <ul id="items">
+        {% for item in items %}
+            <li>
+                {{ item.title }}
+                <img src="{{ item.image_url }}" alt="{{ item.title }}">
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

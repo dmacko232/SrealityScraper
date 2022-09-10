@@ -1,0 +1,3 @@
+fastapi==0.82.0
+itemadapter==0.7.0
+Scrapy==2.6.2
