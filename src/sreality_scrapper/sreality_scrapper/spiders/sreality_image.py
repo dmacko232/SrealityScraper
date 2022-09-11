@@ -10,7 +10,6 @@ class SrealityImageSpider(scrapy.Spider):
 
     def start_requests(self):
         
-        page = 1
         url_prefix = self.start_urls[0]
         for page in range(self.max_pages):
             url = f"{url_prefix}{page + 1}"
@@ -27,5 +26,6 @@ class SrealityImageSpider(scrapy.Spider):
         for flat_node in flat_nodes:
             image_url = flat_node.xpath('.//img/@src')[0].get()
             title = flat_node.xpath('.//h2/a[@class="title"]/span/text()').get().strip()
+            self.log(f"Scrapped {title}.")
             yield SrealityScrapperItem(image_url=image_url, title=title)
             
